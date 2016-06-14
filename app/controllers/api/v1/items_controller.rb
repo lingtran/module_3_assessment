@@ -3,4 +3,8 @@ class Api::V1::ItemsController < Api::ApiController
     respond_with Item.all
   end
 
+  def show
+    respond_with Item.find(params[:id].to_i)
+  end
+
 end
