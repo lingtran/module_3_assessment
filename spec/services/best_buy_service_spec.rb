@@ -5,9 +5,8 @@ RSpec.describe BestBuyService do
     describe "get stores" do
       it "returns stores based on zipcode and location" do
         zipcode = "80202"
-        location = "25"
         service = BestBuyService.new
-        response = service.parse_stores_by_zipcode_and_location(zipcode, location)
+        response = service.parse_stores_by_zipcode(zipcode)
 
         expect(response[:total]).to eq(17)
         expect(response[:stores].count).to eq(17)
