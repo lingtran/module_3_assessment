@@ -6,9 +6,9 @@ RSpec.describe "User can search by zipcode", type: :feature do
 
     visit root_path
 
-    within(".search-form") do
+    within("#search-form") do
       fill_in "Zip Code", with: "#{search_zip}"
-      click_button "search"
+      click_button "Search"
     end
 
     expect(page).to have_current_path '/search'
