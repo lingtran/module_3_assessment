@@ -42,7 +42,6 @@ RSpec.describe "Api::V1::ItemsController", type: :request do
   end
 
   describe "Delete" do
-    # When I send a DELETE request to /api/v1/items/1 I receive a 204 JSON response if the record is successfully deleted
     before(:each) do
       @item_one, @item_two = create_list(:item, 2)
 
@@ -57,7 +56,25 @@ RSpec.describe "Api::V1::ItemsController", type: :request do
     it "removes the item" do
       expect(Item.all).not_to include(@item_one)
     end
+  end
 
+  describe "Create" do
+    # to /api/v1/items with a name, description, and image_url I receive a 201 JSON response if the record is successfully created
+
+    before(:each) do
+      @items = create_list(:item, 2)
+      @new_item = { name: "new item", description: "new description", image_url: "http://rs304.pbsrc.com/albums/nn179/SAMIREGGAETON/hellokitty024.gif~c200"}
+      post "/api/v1/items?name=#{@new_item[:name]}&description=#{@new_item[:description]}&image_url=#{@new_item[:image_url]}"
+    end
+
+    it "provides a response for creating item" do
+      expect(response).to have_http_status(201)
+      expect(response).to be_success
+    end
+
+    it "creates the item" do
+      expect(@items).to include(@new_item)
+    end
   end
 
 end
