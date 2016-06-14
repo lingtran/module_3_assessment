@@ -20,7 +20,7 @@ gem 'active_model_serializers', github: "rails-api/active_model_serializers"
 
 group :test do
   gem 'vcr'
-  gem 'mock'
+  gem 'webmock'
   gem 'simplecov', :require => false
 end
 

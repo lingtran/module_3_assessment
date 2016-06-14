@@ -19,6 +19,7 @@
 
 require 'simplecov'
 require 'vcr'
+require 'webmock'
 
 SimpleCov.start "rails"
 
