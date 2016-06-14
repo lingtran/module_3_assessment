@@ -20,7 +20,7 @@ RSpec.describe "User can search by zipcode", type: :feature do
       expect(page).to have_content("Phone Number")
       expect(page).to have_content("Store Type")
     end
-
+#Got to the point above but was still troubleshooting URL
     expect(page).to have_content("Stores within 25 miles of searched zipcode")
     expect(page).to have_content("17 Total Stores")
     expect(page).to have_content("Showing: 15 total stores")
