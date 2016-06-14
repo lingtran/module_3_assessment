@@ -1,6 +1,6 @@
 <div class="search">
   <%= form_tag '/search', method: :get, id:"search-form", enforce_utf8: false do %>
-    <%= text_field_tag 'Zip Code' %>
+    <%= text_field_tag 'Zip Code', name: nil %>
     <%= submit_tag "Search", name: nil%>
   <% end %>
 </div>
