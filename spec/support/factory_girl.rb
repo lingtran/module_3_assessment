@@ -1,21 +1,21 @@
 FactoryGirl.define do
-  factory :items do
-    name "name"
+  factory :item do
+    sequence(:name) {|n| "name#{n}"}
     description "description"
     image_url "image_url"
   end
 
-  factory :order_items do
+  factory :order_item do
     order { Order.first || association(:order) }
     item { Item.first || association(:item) }
   end
 
-  factory :orders do
+  factory :order do
     amount 1.0
     user { User.first || association(:user) }
   end
 
-  factory :users do
+  factory :user do
     name "name"
     email "email@fake.com"
   end
