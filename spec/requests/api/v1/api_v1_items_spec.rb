@@ -50,12 +50,12 @@ RSpec.describe "Api::V1::ItemsController", type: :request do
     end
 
     it "provides a response for deleted item" do
-      binding.pry
       expect(response).to have_http_status(204)
       expect(response).to be_success
     end
 
     it "removes the item" do
+      expect(Item.all).not_to include(@item_one)
     end
 
   end
