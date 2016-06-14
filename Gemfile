@@ -15,6 +15,7 @@ gem 'figaro'
 gem 'bcrypt'
 gem 'faraday'
 gem 'rails_12factor', group: :production
+gem 'responders'
 
 gem 'active_model_serializers', github: "rails-api/active_model_serializers"
 
