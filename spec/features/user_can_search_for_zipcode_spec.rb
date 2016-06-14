@@ -11,12 +11,12 @@ RSpec.describe "User can search by zipcode", type: :feature do
       click_button "search"
     end
 
-    expect(page).to have_current_path search_path
+    expect(page).to have_current_path '/search'
     expect(page).to have_content("Stores within 25 miles of searched zipcode")
     expect(page).to have_content("17 Total Stores")
     expect(page).to have_content("Showing: 15 total stores")
     expect(page).to have_content("Next Page")
-    
+
     within("#store-info") do
       expect(page).to have_content("Long Name")
       expect(page).to have_content("City")
