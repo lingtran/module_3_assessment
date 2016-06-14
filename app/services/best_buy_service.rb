@@ -4,7 +4,7 @@ class BestBuyService
   end
 
   def get_stores_by_zipcode_and_location(zipcode, location)
-    connection.get "stores(area(#{zipcode}, #{location}))", { format: "json", apiKey: ENV['best_buy_api_key'], show: "longName, city,  distance, phone, storeType"}
+    connection.get "stores(area(#{zipcode},#{location}))", { format: "json", apiKey: ENV['best_buy_api_key'], show: "longName, city,  distance, phone, storeType"}
   end
 
   def parse_stores_by_zipcode_and_location(zipcode, location)
