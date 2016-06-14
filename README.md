@@ -18,3 +18,6 @@ And set up the database and included seed records:
 ```
 bundle exec rake db:{create,setup}
 ```
+
+### Best Buy API doc
+* [https://developer.bestbuy.com/documentation](Best Buy API Documentation)
