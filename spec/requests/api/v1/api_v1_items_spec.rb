@@ -62,7 +62,7 @@ RSpec.describe "Api::V1::ItemsController", type: :request do
     # to /api/v1/items with a name, description, and image_url I receive a 201 JSON response if the record is successfully created
 
     before(:each) do
-      @items = create_list(:item, 2)
+      @item_one, @item_two = create_list(:item, 2)
       @new_item = { name: "new item", description: "new description", image_url: "http://rs304.pbsrc.com/albums/nn179/SAMIREGGAETON/hellokitty024.gif~c200"}
       post "/api/v1/items?name=#{@new_item[:name]}&description=#{@new_item[:description]}&image_url=#{@new_item[:image_url]}"
     end
@@ -73,7 +73,12 @@ RSpec.describe "Api::V1::ItemsController", type: :request do
     end
 
     it "creates the item" do
-      expect(@items).to include(@new_item)
+      expect(@item_one[:name]).not_to eq(@new_item[:name])
+      expect(@item_two[:name]).not_to eq(@new_item[:name])
+      expect(Item.last[:name]).to eq(@new_item[:name])
+      expect(response_body[:name]).to eq(@new_item[:name])
+      expect(response_body[:description]).to eq(@new_item[:description])
+      expect(response_body[:image_url]).to eq(@new_item[:image_url])
     end
   end
 
