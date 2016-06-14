@@ -59,8 +59,6 @@ RSpec.describe "Api::V1::ItemsController", type: :request do
   end
 
   describe "Create" do
-    # to /api/v1/items with a name, description, and image_url I receive a 201 JSON response if the record is successfully created
-
     before(:each) do
       @item_one, @item_two = create_list(:item, 2)
       @new_item = { name: "new item", description: "new description", image_url: "http://rs304.pbsrc.com/albums/nn179/SAMIREGGAETON/hellokitty024.gif~c200"}
